@@ -7,17 +7,15 @@
      *     *
     *********
 """
-n = 5
-for i in range(1,n+1):
-    for s in range(i,n):
-        print(" ",end="")
-    
-    for i in range(0,i):
-        if i ==1:
-            print("*")
-        if i>1:
-            print("*",end="")
-            for k in range(1,i+1):
-                print(" ",end="")
-            print("*")
-        
+n = int(input("Enter rows: "))
+
+for i in range(n):
+    print(" " * (n - i - 1), end="")
+
+    for j in range(2 * i + 1):
+        if j == 0 or j == 2 * i or i == n - 1:
+            print("*", end="")
+        else:
+            print(" ", end="")
+    print()
+
