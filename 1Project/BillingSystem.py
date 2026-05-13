@@ -11,6 +11,7 @@ coffee_price = int(input("Enter Coffee Price: "))
 total_bill = 0
 
 while True:
+    
     print()
     print("===== Welcome to", restaurant_name, "=====")
     print("1. Pizza")
