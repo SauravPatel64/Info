@@ -11,8 +11,8 @@ coffee_price = int(input("Enter Coffee Price: "))
 total_bill = 0
 
 while True:
-
-    print("\n===== Welcome to", restaurant_name, "=====")
+    print()
+    print("===== Welcome to", restaurant_name, "=====")
     print("1. Pizza")
     print("2. Burger")
     print("3. Pasta")
@@ -44,8 +44,8 @@ while True:
             print("Coffee Added Successfully")
 
         case 5:
-
-            print("\n===== Final Bill =====")
+            print()
+            print("===== Final Bill =====")
             print("Total Bill:", total_bill)
 
             if total_bill >= 1000:
@@ -61,7 +61,8 @@ while True:
                 print("No Discount Applied")
                 print("Final Amount:", total_bill)
 
-            print("\nThank You Visit Again")
+            print()
+            print("Thank You Visit Again")
             break
 
         case _:

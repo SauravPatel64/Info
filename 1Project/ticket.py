@@ -6,7 +6,8 @@ ticket_price = int(input("Enter Ticket Price: "))
 
 while True:
 
-    print("\n===== Railway Ticket Booking System =====")
+    print()
+    print("===== Railway Ticket Booking System =====")
     print("1. Check Train Details")
     print("2. Book Ticket")
     print("3. Cancel Ticket")
@@ -18,7 +19,8 @@ while True:
     match choice:
 
         case 1:
-            print("\nTrain Name:", train_name)
+            print()
+            print("Train Name:", train_name)
             print("Ticket Price:", ticket_price)
 
         case 2:
@@ -29,28 +31,34 @@ while True:
                 total_amount = seats * ticket_price
                 available_seats = available_seats - seats
 
-                print("\nTicket Booked Successfully")
+                print()
+                print("Ticket Booked Successfully")
                 print("Booked Seats:", seats)
                 print("Total Amount:", total_amount)
                 print("Remaining Seats:", available_seats)
 
             else:
-                print("\nSeats Not Available")
+                print()
+                print("Seats Not Available")
 
         case 3:
             cancel = int(input("Enter number of tickets to cancel: "))
 
             available_seats = available_seats + cancel
 
-            print("\nTicket Cancelled Successfully")
+            print()
+            print("Ticket Cancelled Successfully")
             print("Updated Seats:", available_seats)
 
         case 4:
-            print("\nAvailable Seats:", available_seats)
+            print()
+            print("Available Seats:", available_seats)
 
         case 5:
-            print("\nThank You")
+            print()
+            print("Thank You")
             break
 
         case _:
-            print("\nInvalid Choice")
+            print()
+            print("Invalid Choice")
