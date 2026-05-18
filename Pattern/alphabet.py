@@ -104,7 +104,8 @@ for i in range (a):
             print(" ",end='' )
 '''
 
-'''6
+'''
+6
 a
 bc
 d f
@@ -129,7 +130,8 @@ for i in range (a):
 
 
 
-'''7
+'''
+7
 ABCDE
 ABCD
 ABC
