@@ -18,3 +18,23 @@ Output:
 a
 """
 
+s = input("Enter String: ")
+
+found_char = ""
+
+for i in range(len(s) - 1, -1, -1):
+    current_char = s[i]
+    
+    count = 0
+    for j in range(len(s)):
+        if s[j] == current_char:
+            count = count + 1
+            
+    if count > 1:
+        found_char = current_char
+        break 
+
+if found_char != "":
+    print("Output is :", found_char)
+else:
+    print("No repeating character found")
