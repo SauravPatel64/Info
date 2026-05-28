@@ -36,3 +36,4 @@ for ch in ls:
     
 if rev=="":
     print("No palindrome word found")
+    
