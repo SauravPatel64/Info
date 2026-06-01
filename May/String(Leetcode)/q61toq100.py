@@ -1,6 +1,5 @@
 
 
-```python
 """
 61. Count total alphabets, digits, and special characters.
 Input:
