@@ -63,65 +63,67 @@ Employees in IT Department:
 
 
 
-from collections import namedtuple
-employee=namedtuple("employee",["emp_id","emp_name","department","salary"])
-n=int(input("enter n: "))
-emp=[]
-for i in range(n):
-    id=int(input("enter your id"))
-    name=input("enter name")
-    d=input("enter department ")
-    s=int(input("enter salary"))
-    emp.append(employee(id,name,d,s))
-
-for i in emp:
-    for j in i:
-        print(j,end=" ")
-    print()
 
 
-#highets
+# from collections import namedtuple
+# employee=namedtuple("employee",["emp_id","emp_name","department","salary"])
+# n=int(input("enter n: "))
+# emp=[]
+# for i in range(n):
+#     id=int(input("enter your id"))
+#     name=input("enter name")
+#     d=input("enter department ")
+#     s=int(input("enter salary"))
+#     emp.append(employee(id,name,d,s))
 
-print()
-print("highest salary employee")
-hs=0
-hse=0
-for i in range(len(emp)):
-    if emp[i][3]>hs:
-        hs=emp[i][3]
-        hse=i
-for j in range(len(emp[hse])):
-    print(emp[hse][j],end=" ")
+# for i in emp:
+#     for j in i:
+#         print(j,end=" ")
+#     print()
 
-#lowest 
-print()
-print("lowesr salary employee")
-ls=emp[0][3]
-ise=0
-for i in range(len(emp)): 
-    if emp[i][3]<ls:
-        ls=emp[i][j]
-        ise=i
-for j in range(len(emp[ise])):
-    print(emp[ise][j],end=" ")
-print()
-print()
-#avarage
-sum=0
-print()
-for i in range(len(emp)):
-    a=emp[i][3]
-    sum=sum+a
-print("avarage salary")
-print("avarage",sum//len(emp))    
 
-#department
-d=input("enter your department: ")
-print("employee in ",d,"department")
-c=0
-for i in range(len(emp)):
-    a=emp[i][2]
-    if a==d:
-        for j in range(len(emp[i])):
-            print(emp[i][j],end=" ")
-        print()
+# #highets
+
+# print()
+# print("highest salary employee")
+# hs=0
+# hse=0
+# for i in range(len(emp)):
+#     if emp[i][3]>hs:
+#         hs=emp[i][3]
+#         hse=i
+# for j in range(len(emp[hse])):
+#     print(emp[hse][j],end=" ")
+
+# #lowest 
+# print()
+# print("lowesr salary employee")
+# ls=emp[0][3]
+# ise=0
+# for i in range(len(emp)): 
+#     if emp[i][3]<ls:
+#         ls=emp[i][j]
+#         ise=i
+# for j in range(len(emp[ise])):
+#     print(emp[ise][j],end=" ")
+# print()
+# print()
+# #avarage
+# sum=0
+# print()
+# for i in range(len(emp)):
+#     a=emp[i][3]
+#     sum=sum+a
+# print("avarage salary")
+# print("avarage",sum//len(emp))    
+
+# #department
+# d=input("enter your department: ")
+# print("employee in ",d,"department")
+# c=0
+# for i in range(len(emp)):
+#     a=emp[i][2]
+#     if a==d:
+#         for j in range(len(emp[i])):
+#             print(emp[i][j],end=" ")
+#         print()

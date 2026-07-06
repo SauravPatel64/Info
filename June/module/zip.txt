@@ -1,0 +1,322 @@
+
+
+Python zipfile Module 
+
+
+The zipfile module is a built-in Python module used to create, read, write, extract, and manage ZIP archives.
+
+A ZIP archive is a compressed file that stores one or more files together, reducing storage space and making files easier to share.
+
+Definition:
+
+The zipfile module provides tools to create, read, write, extract, and inspect ZIP (.zip) archives in Python.
+2. Why Do We Use zipfile?
+
+Without zipfile:
+
+Compressing files manually is difficult.
+Extracting files requires external software.
+
+With zipfile:
+    Compress files.
+    Extract files.
+Read files directly without extracting.
+    Create backups.
+    Share multiple files as one ZIP.
+3. Real-Life Applications
+
+    File backup systems
+
+    Software installation packages
+
+    Email attachments
+
+    Android APK files (APK is a ZIP archive)
+
+    Office files (.docx, .xlsx, .pptx) are ZIP archives internally
+
+    Game assets
+    
+    Cloud storage
+4. Import Module
+
+   import zipfile
+5. Opening a ZIP File
+
+     zipfile.ZipFile(file, mode)
+| Mode  | Meaning                              |
+| ----- | ------------------------------------ |
+| `"r"` | Read existing ZIP                    |
+| `"w"` | Create new ZIP (overwrites existing) |
+| `"a"` | Append files                         |
+| `"x"` | Create new ZIP (error if exists)     |
+
+# example
+
+import zipfile
+
+zip_file = zipfile.ZipFile("info.zip", "r")
+
+# zip_file.close()
+6. Compression Types
+
+| Constant       | Compression                      |
+| -------------- | -------------------------------- |
+| `ZIP_STORED`   | No compression                   |
+| `ZIP_DEFLATED` | Standard compression (most used) |
+| `ZIP_BZIP2`    | Better compression               |
+| `ZIP_LZMA`     | Highest compression              |
+
+Example:-
+zipfile.ZipFile(
+    "info.zip",
+    "w",
+    compression=zipfile.ZIP_DEFLATED
+)
+
+All Important Methods
+
+1. ZipFile()
+
+Purpose
+
+Open or create a ZIP archive.
+import zipfile
+
+z = zipfile.ZipFile("info.zip", "w")
+z.close()
+2. write()
+
+Purpose
+
+Adds an existing file to the ZIP archive.
+import zipfile
+
+with zipfile.ZipFile("info.zip", "w") as z:
+    z.write("hello.txt")
+Output
+
+demo.zip
+
+ └── hello.txt
+3. writestr()
+
+Purpose
+
+Creates a file inside the ZIP from a string.
+import zipfile
+
+with zipfile.ZipFile("info.zip", "w") as z:
+    z.writestr("info.txt",
+               "Hello Everyone!")
+No physical file is required.
+4. read()
+
+Purpose
+
+Reads the contents of a file inside the ZIP.
+with zipfile.ZipFile("info.zip","r") as z:
+    data = z.read("info.txt")
+
+print(data)
+Output
+
+b'Hello Everyone!'
+#  Convert bytes to text 
+
+print(data.decode())
+
+#  Output 
+
+#  Hello Everyone! 
+5. open()
+
+Purpose
+
+Opens a file inside the ZIP without extracting it.
+with zipfile.ZipFile("info.zip") as z:
+
+    with z.open("info.txt") as f:
+
+        print(f.read().decode())
+Difference
+
+read() → Reads everything immediately.
+
+open() → Returns a file object.
+
+Useful for large files.
+6. extract()
+
+Purpose
+
+Extracts one file.
+with zipfile.ZipFile("info.zip") as z:
+
+    z.extract("info.txt")
+7. extractall()
+
+Purpose
+
+Extracts all files.
+with zipfile.ZipFile("demo.zip") as z:
+
+    z.extractall("output")
+8. namelist()
+
+Purpose
+
+Returns a list of filenames.
+with zipfile.ZipFile("demo.zip") as z:
+
+    print(z.namelist())
+9. printdir()
+
+Purpose
+
+Prints file details.
+with zipfile.ZipFile("demo.zip") as z:
+
+    z.printdir()
+    
+# File Name      Modified Size
+# hello.txt
+# message.txt
+10. infolist()
+
+Purpose
+
+Returns information about every file.
+with zipfile.ZipFile("demo.zip") as z:
+
+    info = z.infolist()
+
+    for file in info:
+        print(file.filename)
+        print(file.file_size)
+hello.txt
+25
+
+message.txt
+15
+11. getinfo()
+
+Purpose
+
+Returns information for one file.
+with zipfile.ZipFile("demo.zip") as z:
+
+    info = z.getinfo("hello.txt")
+
+print(info.filename)
+print(info.file_size)
+12. testzip()
+
+Purpose
+
+Checks archive integrity.
+with zipfile.ZipFile("demo.zip") as z:
+
+    result = z.testzip()
+
+print(result)
+Output
+
+None
+
+None means there are no corrupted files.
+
+If a file is corrupted, it returns that filename.
+13. setpassword()
+
+Purpose
+
+Sets a password for reading encrypted ZIP files.
+with zipfile.ZipFile("secure.zip") as z:
+
+    z.setpassword(b"1234")
+
+    print(z.read("data.txt"))
+Important: Python's zipfile can read encrypted ZIPs but cannot create password-protected ZIP files directly.
+14. close()
+
+Purpose
+
+Closes the ZIP archive.
+z = zipfile.ZipFile("demo.zip")
+
+z.close()
+Better approach
+with zipfile.ZipFile("demo.zip") as z:
+
+    print(z.namelist())
+The with statement closes the file automatically.
+ZipInfo Object
+
+Returned by
+getinfo()
+#  or
+
+# infolist()
+Useful attributes
+
+| Attribute       | Meaning         |
+| --------------- | --------------- |
+| `filename`      | File name       |
+| `file_size`     | Original size   |
+| `compress_size` | Compressed size |
+| `date_time`     | Last modified   |
+| `comment`       | File comment    |
+
+Example
+info = z.getinfo("hello.txt")
+
+print(info.filename)
+print(info.file_size)
+print(info.compress_size)
+Interview Questions
+Q1. Is zipfile built-in?
+
+Yes.
+
+Q2. Difference between write() and writestr()?
+write()	writestr()
+Adds an existing file	Creates a file from a string
+Q3. Difference between read() and open()?
+read()	open()
+Returns all data at once	Returns a file object
+Best for small files	Best for large files
+Q4. Difference between extract() and extractall()?
+extract()	extractall()
+Extracts one file	Extracts all files
+Q5. What does testzip() return?
+None → Archive is valid.
+File name → That file is corrupted.
+Q6. Why use the with statement?
+
+It automatically closes the ZIP file, even if an error occurs.
+
+Advantages
+Built into Python (no installation required)
+Easy to compress and extract files
+Supports multiple compression methods
+Can inspect ZIP contents without extracting
+Useful for backups, data transfer, and packaging
+Limitations
+Cannot create password-protected ZIP files directly
+Encryption support is limited
+Very large archives may take time to process
+One-Line Summary (for your class)
+
+"The zipfile module is Python's built-in library for creating, reading, writing, extracting, and managing ZIP archives. It allows developers to compress files, inspect archive contents, and work with files directly inside ZIP archives without needing external software."
+
+Presentation Tips to Stand Out
+Start with a real ZIP file on your computer and ask: "How does Python read this without WinRAR or 7-Zip?"
+Explain that .docx, .xlsx, .pptx, and .apk files are actually ZIP archives internally—this usually surprises the audience.
+Show a live demo:
+Create a ZIP with write().
+Add text using writestr().
+Display files with namelist().
+Read a file using read() without extracting it.
+Extract everything using extractall().
+End with a quick quiz by asking classmates the difference between write() vs. writestr() and read() vs. open(). This makes your presentation interactive and memorable.
