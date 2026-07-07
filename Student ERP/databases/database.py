@@ -7,7 +7,7 @@ import os
 
 
 def get_connection():
-    conn = sqlite3.connect("student_erp.db")
+    conn = sqlite3.connect("student.db")
     conn.execute("PRAGMA foreign_keys = ON")
     return conn
 

@@ -60,6 +60,50 @@ Employees in IT Department:
 101 Rahul IT 50000
 103 Amit IT 70000
 """
+from collections import namedtuple
+# emp_id, emp_name, department, salary
+n =  int(input("Enter Number of emloyee :"))
+employee = namedtuple("employee",["emp_id", "emp_name", "department", "salary"])
+employees = []
+for i in range(n):
+    id = int(input("Enter Employee id : "))
+    name = input("Enter Employee Name : ")
+    dep =  input("Enterr Department Name : ")
+    salary = int(input("Enter Salary :"))
+    employees.append(employee(id,name,dep,salary))
+    
+for i in  employees:
+    for j in i:
+        print(j,end=" ")
+    print()
+
+highest = 0
+hse = 0
+for i in range(len(employees)):
+    if employee[i][3]>highest:
+        hs = employee[i][3]
+        hse = i
+        
+for j in range(len(employee[i])):
+    print("Highest Salary is : ")
+    print(employee[i][j],end=" ")
+print("Highest Salary is : ")
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
