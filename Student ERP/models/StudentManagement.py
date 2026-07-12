@@ -7,8 +7,8 @@ def add_student():
     name = input("Name: ").strip()
     course = input("Course: ").strip()
     year = get_int("Year (1-4): ")
-    email = input("Email (optional): ").strip()
-    phone = input("Phone (optional): ").strip()
+    email = input("Email : ").strip()
+    phone = input("Phone : ").strip()
 
     conn = get_connection()
     cur = conn.cursor()

@@ -61,57 +61,100 @@ Students in Python Course:
 3 Karan Python 92
 """
 
+
 from collections import namedtuple
-student=namedtuple("student",["roll_no","name","course","marks"])
-n=int(input("enter no of stu"))
 
-stu=[]
-for i in range(n):
-    rno=int(input("enter your roll no: "))
-    n=input("enter your name ")
-    c=input("enter your course name: ")
-    m=float(input("enter your marks: "))
-    stu.append(student(rno,n,c,m))
+student = namedtuple("Student",["roll_no","name","course","markks"])
 
-#display all rows
-for i in stu:
-    for j in i:
-        print(j,end=" ")
-    print()
+n =int(input("Enter no of Student : "))
 
-#highest
-print()
-print("topper: ")
-hs=0
-hsi=0
-for i in range(len(stu)):
-    a=stu[i][3]
-    if a>hs:
-        hs=a
-        hsi=i
-for j in range(len(stu[hsi])):
-    print(stu[hsi][j],end=" ")
-print()
-#above 80
-c=0
-for i in range(len(stu)):
-    a=stu[i][3]
-    if a>80:
-        c=c+1
-print("count above 80",c)
+for i in  range(n):
+    roll = int(input("Enter Student Roll_No :- "))
+    name = input("Enter Student Name : ")
+    course = input("Enter course : ")
 
-#avarage
-sum=0
-for i in range(len(stu)):
-    a=stu[i][3]
-    sum=sum+a
-print("avarage marks",sum//len(stu))
 
-#in same course
-ec=input("enter course")
-for i in range(len(stu)):
-    a=stu[i][2]
-    if a==ec:
-        for j in range(len(stu[i])):
-            print(stu[i][j],end=" ")
-        print()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# from collections import namedtuple
+# student=namedtuple("student",["roll_no","name","course","marks"])
+# n=int(input("enter no of stu"))
+
+# stu=[]
+# for i in range(n):
+#     rno=int(input("enter your roll no: "))
+#     n=input("enter your name ")
+#     c=input("enter your course name: ")
+#     m=float(input("enter your marks: "))
+#     stu.append(student(rno,n,c,m))
+
+# #display all rows
+# for i in stu:
+#     for j in i:
+#         print(j,end=" ")
+#     print()
+
+# #highest
+# print()
+# print("topper: ")
+# hs=0
+# hsi=0
+# for i in range(len(stu)):
+#     a=stu[i][3]
+#     if a>hs:
+#         hs=a
+#         hsi=i
+# for j in range(len(stu[hsi])):
+#     print(stu[hsi][j],end=" ")
+# print()
+# #above 80
+# c=0
+# for i in range(len(stu)):
+#     a=stu[i][3]
+#     if a>80:
+#         c=c+1
+# print("count above 80",c)
+
+# #avarage
+# sum=0
+# for i in range(len(stu)):
+#     a=stu[i][3]
+#     sum=sum+a
+# print("avarage marks",sum//len(stu))
+
+# #in same course
+# ec=input("enter course")
+# for i in range(len(stu)):
+#     a=stu[i][2]
+#     if a==ec:
+#         for j in range(len(stu[i])):
+#             print(stu[i][j],end=" ")
+#         print()
